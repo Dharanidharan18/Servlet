@@ -27,13 +27,40 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = Integer.parseInt(request.getParameter("userId"));
+        
+        String action = request.getParameter("action");
+        if (action != null) {
+            switch (action) {
+            case "add":
+            	 addEmploye(request, response);
+                 break;
+                case "delete":
+                    deleteEmploye(request, response);
+                    break;           
+               
+    }
+        }}
+    
+    private synchronized void deleteEmploye(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id =Integer.parseInt(request.getParameter("deleteid"));
+        employeeList.remove(id);
+        request.setAttribute("employeeList", employeeList);
+        request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+
+    }
+    
+    private synchronized void addEmploye(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	int userId = Integer.parseInt(request.getParameter("userId"));
         String name = request.getParameter("name");
         String password = request.getParameter("password");
 
         EmployeeDetails employee = new EmployeeDetails(userId, name, password);
         employeeList.add(employee);
-
-        doGet(request, response);
+        request.setAttribute("employeeList", employeeList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("HomePage.jsp");        
+        dispatcher.forward(request, response);
+        
     }
+    
 }
