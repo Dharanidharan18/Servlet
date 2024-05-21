@@ -8,54 +8,21 @@
 <meta charset="ISO-8859-1">
 <title>Employee Details</title>
 <style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    table, th, td {
-        border: 1px solid black;
-    }
-    th, td {
-        padding: 8px;
-        text-align: left;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
+body {
+    text-align: center;
+}
 </style>
 </head>
 <body>
-   
-
-    <h2>Employee List</h2>
-<table>
-    <tr>
-        <th>User ID</th>
-        <th>Name</th>
-        <th>Password</th>
-        <th>Action</th>
-    </tr>
-    <%
-        List<EmployeeDetails> employeeList = (List<EmployeeDetails>) request.getAttribute("employeeList");
-        if (employeeList != null) {
-            for (EmployeeDetails employee : employeeList) {
-                out.println("<tr>");
-                out.println("<td>" + employee.getUserId() + "</td>");
-                out.println("<td>" + employee.getName() + "</td>");
-                out.println("<td>" + employee.getPassword() + "</td>");
-                out.println("<td>");
-    %>
-                <form action="Employee" method="post">
-                    <input type="hidden" name="action" value="delete">
-                    <input type="hidden" name="deleteid" value="<%= employeeList.indexOf(employee)  %>">
-                    <button type="submit">Delete</button>
-                </form>
-    <%
-                out.println("</td>");
-                out.println("</tr>");
-            }
-        }
-    %>
-</table>
+    <form method="post" action="Employee">
+        <input type="hidden" name="action" value="add">
+        <label for="name" class="label">Name</label>
+        <input id="name" type="text" class="input" name="name"><br><br>
+        <label for="phoneNumber" class="label">Phone Number</label>
+        <input id="phoneNumber" type="text" class="input" name="phoneNumber"><br><br>
+        <label for="email" class="label">Email</label>
+        <input id="email" type="text" class="input" name="email"><br><br>
+        <input type="submit" class="button" value="Add Employee">
+    </form>
 </body>
 </html>

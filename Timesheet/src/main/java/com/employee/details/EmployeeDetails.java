@@ -1,28 +1,35 @@
 package com.employee.details;
 
 public class EmployeeDetails {
-	private int userId;
+	private String email;
 	private String name;
-	private String password;
+	private String phoneNumber;
 
-	public EmployeeDetails(int userId, String name, String password) {
-		this.userId = userId;
+	public EmployeeDetails( String name, String phoneNumber ,String email) {
+		this.email = email;
 		this.name = name;
-		this.password = password;
+		this.phoneNumber = phoneNumber;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
+	
 	public String getName() {
 		return name;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+
+	@Override
+	public String toString() {
+		return "EmployeeDetails [email=" + email + ", name=" + name + ", phoneNumber=" + phoneNumber + "]";
+	}
+
 
 }
 
