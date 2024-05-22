@@ -1,16 +1,27 @@
 package com.employee.details;
 
 public class EmployeeDetails {
-	private String email;
+	
+	private int empID;
+	
 	private String name;
 	private String phoneNumber;
+	private String email;
+	private String password;
 
-	public EmployeeDetails( String name, String phoneNumber ,String email) {
-		this.email = email;
+	public EmployeeDetails( int empID, String name, String phoneNumber ,String email, String password) {
+		
+		this.empID = empID;
+		
 		this.name = name;
 		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.password = password;
 	}
 
+	public int getEmpID() {
+		return empID;
+	}
 	
 	public String getName() {
 		return name;
@@ -23,12 +34,19 @@ public class EmployeeDetails {
 	public String getEmail() {
 		return email;
 	}
-
+	
+	public String getPassword() {
+		return password;
+	}
 
 	@Override
 	public String toString() {
-		return "EmployeeDetails [email=" + email + ", name=" + name + ", phoneNumber=" + phoneNumber + "]";
+		return "EmployeeDetails [empID=" + empID + ", name=" + name + ", phoneNumber=" + phoneNumber + ", email="
+				+ email + ", password=" + password + "]";
 	}
+
+
+	
 
 
 }

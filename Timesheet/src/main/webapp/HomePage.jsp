@@ -16,12 +16,22 @@ body {
 <body>
     <form method="post" action="Employee">
         <input type="hidden" name="action" value="add">
+        
+        <label for="empID" class="label">Employee ID</label>
+        <input id="empID" type="number" class="input" name="empID"><br><br>
+        
         <label for="name" class="label">Name</label>
         <input id="name" type="text" class="input" name="name"><br><br>
+        
         <label for="phoneNumber" class="label">Phone Number</label>
         <input id="phoneNumber" type="text" class="input" name="phoneNumber"><br><br>
+        
         <label for="email" class="label">Email</label>
         <input id="email" type="text" class="input" name="email"><br><br>
+        
+         <label for="password" class="label">Password</label>
+        <input id="password" type="password" class="input" name="password"><br><br>
+        
         <input type="submit" class="button" value="Add Employee">
     </form>
 </body>
